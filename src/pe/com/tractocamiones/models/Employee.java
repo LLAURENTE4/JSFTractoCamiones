@@ -13,10 +13,7 @@ private String fullName;
 private String document;
 private String address;
 private String telephone;
-private String fax;
-private String emergencyNumber;
 private String status;
-
 
     public Integer getIdEmployee() {
         return idEmployee;
@@ -80,22 +77,6 @@ private String status;
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
-    }
-
-    public String getFax() {
-        return fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
-
-    public String getEmergencyNumber() {
-        return emergencyNumber;
-    }
-
-    public void setEmergencyNumber(String emergencyNumber) {
-        this.emergencyNumber = emergencyNumber;
     }
 
     public String getStatus() {
