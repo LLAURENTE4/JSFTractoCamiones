@@ -7,14 +7,10 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class Client {
     private int id;
-    private String paternalLastName;
-    private String maternalLastName;
-    private String fullName;
+    private String bussinessName;
     private String document;
     private String address;
-    private String telephone;
-    private String fax;
-    private String emergencyTelephone;
+    private String cellphone;
     private String state;
 
 
@@ -26,28 +22,12 @@ public class Client {
         this.id = id;
     }
 
-    public String getPaternalLastName() {
-        return paternalLastName;
+    public String getBussinessName() {
+        return bussinessName;
     }
 
-    public void setPaternalLastName(String paternalLastName) {
-        this.paternalLastName = paternalLastName;
-    }
-
-    public String getMaternalLastName() {
-        return maternalLastName;
-    }
-
-    public void setMaternalLastName(String maternalLastName) {
-        this.maternalLastName = maternalLastName;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setBussinessName(String bussinessName) {
+        this.bussinessName = bussinessName;
     }
 
     public String getDocument() {
@@ -66,28 +46,12 @@ public class Client {
         this.address = address;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String getCellphone() {
+        return cellphone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getFax() {
-        return fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
-
-    public String getEmergencyTelephone() {
-        return emergencyTelephone;
-    }
-
-    public void setEmergencyTelephone(String emergencyTelephone) {
-        this.emergencyTelephone = emergencyTelephone;
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
     }
 
     public String getState() {
