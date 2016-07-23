@@ -20,7 +20,7 @@ public class HRServiceFacade {
     public HRServiceFacade() {
         try {
             InitialContext ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource");
+            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource_tractocamiones");
             connection = ds.getConnection();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
