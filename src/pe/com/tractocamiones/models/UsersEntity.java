@@ -9,5 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsersEntity {
+ private Integer id;
+    private String lastname;
+    private String firstName;
+    private String state;
 
 }

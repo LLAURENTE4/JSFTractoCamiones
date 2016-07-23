@@ -17,11 +17,10 @@ public class HRServiceFacade {
     private Connection connection;
     private Machine currentMachine;
 
-
     public HRServiceFacade() {
         try {
             InitialContext ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource_tractocamiones");
+            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource");
             connection = ds.getConnection();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
@@ -36,23 +35,6 @@ public class HRServiceFacade {
         machinesEntity.setConnection(connection);
         return machinesEntity;
     }
-    private CustomersEntity getCustomersEntity() {
-        CustomersEntity customersEntity = new CustomersEntity();
-        customersEntity.setConnection(connection);
-        return customersEntity;
-    }
-    private OrdersJobHeaderEntity getOrdersJobHeaderEntity() {
-        OrdersJobHeaderEntity ordersjobheaderEntity = new OrdersJobHeaderEntity();
-        ordersjobheaderEntity.setConnection(connection);
-        return ordersjobheaderEntity;
-    }
-
-    public List<OrderJobHeader> getOrderJobHeaderClient(int idClient) {
-        return getOrdersJobHeaderEntity().getOrdersJobHeaderClient(idClient);
-    }
-    public Client getDataClient(String email,String password){
-        return getCustomersEntity().getDataClient(email,password);
-    }
 
     public int getMachinesCount() {
         return getMachinesEntity().getMachines().size();
@@ -66,11 +48,10 @@ public class HRServiceFacade {
         return currentMachine;
     }
 
-    public void setCurrentEmployee(Machine currentMachine) {
-        this.currentMachine = currentMachine;
-    }
+    public void addMachine(String description,String manufacturingYear,String mark , String model , String plateNumber){
+        getMachinesEntity().addMachine(description,manufacturingYear,mark,model,plateNumber);
 
-    public void setEditCurrentMachine(Machine machine){ getMachinesEntity().setEditMachine(machine); }
+    }
 
 
 
