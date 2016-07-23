@@ -37,8 +37,7 @@ public class MachinesEntity {
     }
 
     public void addMachine(String description,String manufacturingYear,String mark , String model , String plateNumber){
-        int li_cant;
-        String sql="INSERT INTO machine (mark,model,manufacturing_year,description,plate_number) VALUES (?,?,?,?,?)  ";
+               String sql="INSERT INTO machine (mark,model,manufacturing_year,description,plate_number) VALUES (?,?,?,?,?)  ";
 
         try {
             PreparedStatement pstm = connection.prepareStatement(sql);

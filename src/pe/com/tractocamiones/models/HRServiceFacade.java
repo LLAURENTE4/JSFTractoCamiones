@@ -30,11 +30,19 @@ public class HRServiceFacade {
         return connection;
     }
 
+
     private MachinesEntity getMachinesEntity() {
         MachinesEntity machinesEntity = new MachinesEntity();
         machinesEntity.setConnection(connection);
         return machinesEntity;
     }
+
+    private UsersEntity getUsersEntity() {
+        UsersEntity usersEntity = new UsersEntity();
+        usersEntity.setConnection(connection);
+        return usersEntity;
+    }
+
 
     public int getMachinesCount() {
         return getMachinesEntity().getMachines().size();
@@ -44,14 +52,19 @@ public class HRServiceFacade {
         return getMachinesEntity().getMachines();
     }
 
-    public Machine getCurrentMachine() {
-        return currentMachine;
-    }
-
     public void addMachine(String description,String manufacturingYear,String mark , String model , String plateNumber){
         getMachinesEntity().addMachine(description,manufacturingYear,mark,model,plateNumber);
 
     }
+
+    public void addUser(String id,String lastName,String firstName , String state , String document,String password){
+        getUsersEntity().addUser(id,lastName,firstName,state,document,password);
+
+    }
+
+
+
+
 
 
 
