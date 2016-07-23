@@ -18,7 +18,7 @@
                <b:column medium-screen="5"/>
                <b:column medium-screen="4">
                   <br/>
-                       <b><h:outputLabel value="WELCOME"/></b>
+                  <b><h:outputLabel value="WELCOME"/></b>
                   <br/>
                </b:column>
             </b:row>
@@ -29,7 +29,7 @@
                   <b><h:outputText value="E-Mail:"/></b>
                </b:column>
                <b:column medium-screen="4">
-                  <b:inputText placeholder="e-mail">
+                  <b:inputText placeholder="e-mail" binding="#{client_email}">
                      <f:facet name="prepend">
                         <h:outputText value="@" />
                      </f:facet>
@@ -42,7 +42,7 @@
                   <b><h:outputText value="Password:" /></b>
                </b:column>
                <b:column medium-screen="4">
-                  <b:inputSecret placeholder="Password">
+                  <b:inputSecret placeholder="Password" binding="#{client_password}">
                      <f:facet name="prepend">
                         <b:icon name="glyphicon glyphicon-pencil" />
                      </f:facet>
@@ -54,6 +54,7 @@
                <b:column medium-screen="4"></b:column>
                <b:column span="2" offset="2" medium-screen="3">
                   <b:commandButton value="login" look="primary" style="width:100%"/>
+                  <h:commandButton type="submit" value="login" look="primary" style="width:100%" action="ordersClient" actionListener="#{hrservicefacade.getDataClient(client_email.value,client_password.value)}"/>
                </b:column>
             </b:row>
          </b:container>

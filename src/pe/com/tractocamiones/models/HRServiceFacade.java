@@ -17,6 +17,7 @@ public class HRServiceFacade {
     private Connection connection;
     private Machine currentMachine;
 
+
     public HRServiceFacade() {
         try {
             InitialContext ctx = new InitialContext();
@@ -34,6 +35,23 @@ public class HRServiceFacade {
         MachinesEntity machinesEntity = new MachinesEntity();
         machinesEntity.setConnection(connection);
         return machinesEntity;
+    }
+    private CustomersEntity getCustomersEntity() {
+        CustomersEntity customersEntity = new CustomersEntity();
+        customersEntity.setConnection(connection);
+        return customersEntity;
+    }
+    private OrdersJobHeaderEntity getOrdersJobHeaderEntity() {
+        OrdersJobHeaderEntity ordersjobheaderEntity = new OrdersJobHeaderEntity();
+        ordersjobheaderEntity.setConnection(connection);
+        return ordersjobheaderEntity;
+    }
+
+    public List<OrderJobHeader> getOrderJobHeaderClient(int idClient) {
+        return getOrdersJobHeaderEntity().getOrdersJobHeaderClient(idClient);
+    }
+    public Client getDataClient(String email,String password){
+        return getCustomersEntity().getDataClient(email,password);
     }
 
     public int getMachinesCount() {
@@ -54,9 +72,6 @@ public class HRServiceFacade {
 
     public void setEditCurrentMachine(Machine machine){ getMachinesEntity().setEditMachine(machine); }
 
-  // public void setEditCurrentEmployee2(int id, String firstName,String lastName){
-    //    getEmployeesEntity().setEditEmployee2(id,firstName,lastName);
 
-    //}
 
 }

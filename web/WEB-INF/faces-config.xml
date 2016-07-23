@@ -11,6 +11,9 @@
         <navigation-case>
             <to-view-id>/loginUser.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <to-view-id>/ordersClient.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
   
 </faces-config>
