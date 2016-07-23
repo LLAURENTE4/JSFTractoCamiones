@@ -6,6 +6,9 @@
       <element id="directory" name="web.war">
         <element id="artifact" artifact-name="JSFTractoCamiones:war exploded" />
       </element>
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="BootsFaces-OSP-0.9.1-dist-default" />
+      </element>
     </root>
   </artifact>
 </component>

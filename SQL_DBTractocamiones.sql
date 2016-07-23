@@ -191,7 +191,7 @@ CREATE TABLE `resource` (
   `resourcename` char(120) DEFAULT NULL,
   `unit` char(6) DEFAULT NULL,
   `state` char(1) DEFAULT NULL,
-  `pricesale` decimal(20,6) DEFAULT NULL,
+  `price_sale` decimal(20,6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `resource_id_uindex` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=824 DEFAULT CHARSET=utf8;
@@ -241,8 +241,8 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id` varchar(15) NOT NULL,
-  `last` varchar(30) DEFAULT NULL,
-  `first` varchar(30) DEFAULT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `first_name` varchar(30) DEFAULT NULL,
   `state` char(1) DEFAULT NULL,
   `document` varchar(20) DEFAULT NULL,
   `password` varchar(15) DEFAULT NULL,
@@ -270,4 +270,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-23  3:38:00
+-- Dump completed on 2016-07-23  4:09:34

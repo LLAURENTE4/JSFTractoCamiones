@@ -4,8 +4,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
    <f:view>
-      <h:outputLabel value="Hello, world"/>
+      <b:container layout="fluid">
+         <b:row>
+            <b:column medium-screen="2">
+               <h:outputText value="Username:"/>
+            </b:column>
+            <b:column medium-screen="4">
+               <b:inputText placeholder="Username" />
+            </b:column>
+            <b:column medium-screen="6">
+               <b:message/>
+            </b:column>
+         </b:row>
+         <b:row>
+            <b:column medium-screen="2">
+               <h:outputText value="Password:" />
+            </b:column>
+            <b:column medium-screen="4">
+               <b:inputSecret placeholder="Password" />
+            </b:column>
+            <b:column medium-screen="6">
+               <b:message />
+            </b:column>
+         </b:row>
+         <b:row>
+            <b:column span="2" offset="2">
+               <b:commandButton value="login" look="primary" style="width:100%" />
+            </b:column>
+            <b:column span="2">
+               <b:commandButton value="password forgotten" look="danger" style="width:100%" />
+            </b:column>
+         </b:row>
+      </b:container>
    </f:view>
 </html>

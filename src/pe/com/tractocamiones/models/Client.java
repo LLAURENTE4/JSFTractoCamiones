@@ -2,6 +2,7 @@ package pe.com.tractocamiones.models;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.util.Date;
 
 @ManagedBean(name = "client")
 @SessionScoped
@@ -12,6 +13,10 @@ public class Client {
     private String address;
     private String cellphone;
     private String state;
+    private String id_user;
+    private String mail;
+    private String password;
+    private Date registrationDate;
 
 
     public int getId() {
@@ -60,5 +65,37 @@ public class Client {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
 }
