@@ -6,6 +6,15 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
+            <to-view-id>/loginClient.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <to-view-id>/loginUser.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/loginClient.xhtml</from-view-id>
+        <navigation-case>
             <to-view-id>/ordersClient.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>

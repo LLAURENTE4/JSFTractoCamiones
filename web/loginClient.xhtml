@@ -10,6 +10,7 @@
 
 </h:head>
 <div class="container" align="center">
+
     <f:view>
         <h:form id="loginForm" >
             <b:container layout="fluid">
@@ -29,7 +30,7 @@
                         <b><h:outputText value="E-Mail:"/></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputText placeholder="e-mail">
+                        <b:inputText placeholder="e-mail" binding="#{client_email}">
                             <f:facet name="prepend">
                                 <h:outputText value="@" />
                             </f:facet>
@@ -42,7 +43,7 @@
                         <b><h:outputText value="Password:" /></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputSecret placeholder="Password">
+                        <b:inputSecret placeholder="Password" binding="#{client_password}">
                             <f:facet name="prepend">
                                 <b:icon name="glyphicon glyphicon-pencil" />
                             </f:facet>
@@ -53,10 +54,11 @@
                 <b:row>
                     <b:column medium-screen="4"></b:column>
                     <b:column span="2" offset="2" medium-screen="3">
-                        <b:commandButton value="login2" look="primary" style="width:100%"/>
+                        <b:commandButton type="submit" value="Login" look="primary" style="width:100%" action="ordersClient" actionListener="#{hrservicefacade.setDataClient(client_email.value,client_password.value)}"/>
                     </b:column>
                 </b:row>
             </b:container>
+
         </h:form>
     </f:view>
 </div>
