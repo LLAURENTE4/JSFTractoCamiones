@@ -70,7 +70,7 @@ public class HRServiceFacade {
         this.currentMachine = currentMachine;
     }
 
-    public void setEditCurrentMachine(Machine machine){ getMachinesEntity().setEditMachine(machine); }
+
 
 
 
