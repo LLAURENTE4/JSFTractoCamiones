@@ -15,40 +15,45 @@ public class MachinesEntity {
 
     public void setConnection(Connection connection) { this.connection = connection;}
 
-    public void setEditMachine(Machine machine){
-        if(connection != null) {
+    public void setEditMachine(int id, String description,String manufacturingYear,String mark , String model , String plateNumber){
+       int li_cant;
+       String sql="update machine set mark= ?,model= ? ,manufacturing_year= ?,description= ?,plate_number=?  where id= ? ";
 
-            try {
-                PreparedStatement pstm = null;
-                pstm = getConnection().prepareStatement("update machine set mark= ?,model= ? ,manufacturing_year= ?,description= ?,plate_number=?  where id= ? ");
-                pstm.setString(1, machine.getMark());
-                pstm.setString(2, machine.getModel());
-                pstm.setString(3, machine.getManufacturingYear());
-                pstm.setString(4, machine.getDescription());
-                pstm.setString(5, machine.getPlateNumber());
-                pstm.setInt(6, machine.getId());
-                pstm.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        try {
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setString(1, mark);
+            pstm.setString(2, model);
+            pstm.setString(3, manufacturingYear);
+            pstm.setString(4, description);
+            pstm.setString(5, plateNumber);
+            pstm.setInt(6, id);
+
+            li_cant=pstm.executeUpdate();
+            out.println("hola");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    }
-   // public void setEditEmployee2(int id, String firstName,String lastName){
-  //      int li_cant;
-    //    String sql="update employees set first_name= ?,last_name= ? where employee_id= ? ";
-//
-  //      try {
-    //        PreparedStatement pstm = connection.prepareStatement(sql);
-      //      pstm.setString(1, firstName);
-        //    pstm.setString(2, lastName);
-          //  pstm.setInt(3, id);
-            //li_cant=pstm.executeUpdate();
-            //out.println("hola");
-       // } catch (SQLException e) {
-         //   e.printStackTrace();
-        //}
 
-//    }
+    }
+
+    public void addMachine(String description,String manufacturingYear,String mark , String model , String plateNumber){
+               String sql="INSERT INTO machine (mark,model,manufacturing_year,description,plate_number) VALUES (?,?,?,?,?)  ";
+
+        try {
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setString(1, mark);
+            pstm.setString(2, model);
+            pstm.setString(3, manufacturingYear);
+            pstm.setString(4, description);
+            pstm.setString(5, plateNumber);
+
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public List<Machine> getMachines(){
 

@@ -13,10 +13,12 @@ public class Client {
     private String address;
     private String cellphone;
     private String state;
-    private String id_user;
+    private String idUser;
     private String mail;
     private String password;
     private Date registrationDate;
+
+
 
 
     public int getId() {
@@ -67,12 +69,12 @@ public class Client {
         this.state = state;
     }
 
-    public String getId_user() {
-        return id_user;
+    public String getIdUser() {
+        return idUser;
     }
 
-    public void setId_user(String id_user) {
-        this.id_user = id_user;
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 
     public String getMail() {
