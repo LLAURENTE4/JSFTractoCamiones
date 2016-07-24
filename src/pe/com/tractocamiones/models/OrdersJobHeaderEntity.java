@@ -42,4 +42,31 @@ public class OrdersJobHeaderEntity {
         }
     }
 
+    public List<OrderJobHeader> getOrdersJob(){
+        String sql="select * from order_job_header";
+        List<OrderJobHeader> ordersjobheader=new ArrayList<>();
+        if(connection == null){
+            return null;
+        }
+        try {
+            Statement stmt=connection.createStatement();
+            ResultSet rs=stmt.executeQuery(sql);
+            if(connection == null){ return null;}
+            while(rs.next()){
+                OrderJobHeader orderjobheader=new OrderJobHeader();
+                orderjobheader.setId(rs.getInt("id"));
+                orderjobheader.setDescription(rs.getString("description"));
+                orderjobheader.setDescriptionService(rs.getString("description_service"));
+                orderjobheader.setPrice(rs.getDouble("price"));
+                orderjobheader.setState(rs.getString("state"));
+                orderjobheader.setRegistrationDate(rs.getDate("registration_date"));
+                ordersjobheader.add(orderjobheader);
+            }
+            return ordersjobheader;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

@@ -17,11 +17,12 @@ public class HRServiceFacade {
     private Connection connection;
     private Machine currentMachine;
     private Client currentClient;
+    private User currentUser;
 
     public HRServiceFacade() {
         try {
             InitialContext ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource_tractocamiones");
+            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource");
             connection = ds.getConnection();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
@@ -55,9 +56,19 @@ public class HRServiceFacade {
     public List<OrderJobHeader> getOrderJobHeaderClient(int idClient) {
         return getOrdersJobHeaderEntity().getOrdersJobHeaderClient(idClient);
     }
+    
+    public List<OrderJobHeader> getOrderJob() {
+        return getOrdersJobHeaderEntity().getOrdersJob();
+    }
+
     public void setDataClient(String email,String password){
         this.currentClient=getCustomersEntity().getDataClient(email,password);
     }
+
+    public void setDataUser(String id,String password){
+        this.currentUser=getUsersEntity().getDataUser(id,password);
+    }
+
 
     public int getMachinesCount() {
         return getMachinesEntity().getMachines().size();
@@ -75,11 +86,15 @@ public class HRServiceFacade {
     }
 
     public void addClient(String document, String bussinessName , String address , String cellphone, String state, String mail , String password){
-        getCustomersEntity().addCurrency(document,bussinessName,address,cellphone,state,mail,password);}
+        getCustomersEntity().addClient(document,bussinessName,address,cellphone,state,mail,password);}
 
     public void setCurrentClient(Client currentClient) {
         this.currentClient = currentClient;
     }
+    public void setCurrentUser (User currentUser) {
+        this.currentUser = currentUser;
+    }
+
 
     public void addUser(String id,String lastName,String firstName , String state , String document,String password){
       getUsersEntity().addUser(id,lastName,firstName,state,document,password);

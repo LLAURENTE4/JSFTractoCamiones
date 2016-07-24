@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="BootsFaces-OSP-0.9.1-dist">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../BootsFaces-OSP-0.9.1-dist.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
