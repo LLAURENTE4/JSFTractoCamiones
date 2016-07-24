@@ -16,7 +16,7 @@ public class HRServiceFacade {
 
     private Connection connection;
     private Machine currentMachine;
-
+    private Client currentClient;
 
     public HRServiceFacade() {
         try {
@@ -50,8 +50,8 @@ public class HRServiceFacade {
     public List<OrderJobHeader> getOrderJobHeaderClient(int idClient) {
         return getOrdersJobHeaderEntity().getOrdersJobHeaderClient(idClient);
     }
-    public Client getDataClient(String email,String password){
-        return getCustomersEntity().getDataClient(email,password);
+    public void setDataClient(String email,String password){
+        this.currentClient=getCustomersEntity().getDataClient(email,password);
     }
 
     public int getMachinesCount() {
@@ -62,15 +62,13 @@ public class HRServiceFacade {
         return getMachinesEntity().getMachines();
     }
 
-    public Machine getCurrentMachine() {
-        return currentMachine;
+    public Client getCurrentClient() {
+        return currentClient;
     }
 
-    public void setCurrentEmployee(Machine currentMachine) {
-        this.currentMachine = currentMachine;
+    public void setCurrentClient(Client currentClient) {
+        this.currentClient = currentClient;
     }
-
-
 
 
 
