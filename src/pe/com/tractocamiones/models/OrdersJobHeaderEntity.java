@@ -31,7 +31,7 @@ public class OrdersJobHeaderEntity {
                 orderjobheader.setDescription(rs.getString("description"));
                 orderjobheader.setDescriptionService(rs.getString("description_service"));
                 orderjobheader.setPrice(rs.getDouble("price"));
-                orderjobheader.setState(rs.getString("state"));
+                orderjobheader.setIdState(rs.getString("id_state"));
                 orderjobheader.setRegistrationDate(rs.getDate("registration_date"));
                 ordersjobheader.add(orderjobheader);
             }
@@ -58,7 +58,7 @@ public class OrdersJobHeaderEntity {
                 orderjobheader.setDescription(rs.getString("description"));
                 orderjobheader.setDescriptionService(rs.getString("description_service"));
                 orderjobheader.setPrice(rs.getDouble("price"));
-                orderjobheader.setState(rs.getString("state"));
+                orderjobheader.setIdState(rs.getString("id_state"));
                 orderjobheader.setRegistrationDate(rs.getDate("registration_date"));
                 ordersjobheader.add(orderjobheader);
             }
