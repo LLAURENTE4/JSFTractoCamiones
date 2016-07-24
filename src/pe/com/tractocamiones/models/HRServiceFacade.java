@@ -36,6 +36,11 @@ public class HRServiceFacade {
         machinesEntity.setConnection(connection);
         return machinesEntity;
     }
+    private UsersEntity getUsersEntity() {
+        UsersEntity usersEntity = new UsersEntity();
+        usersEntity.setConnection(connection);
+        return usersEntity;
+    }
     private CustomersEntity getCustomersEntity() {
         CustomersEntity customersEntity = new CustomersEntity();
         customersEntity.setConnection(connection);
@@ -46,6 +51,7 @@ public class HRServiceFacade {
         ordersjobheaderEntity.setConnection(connection);
         return ordersjobheaderEntity;
     }
+
 
     public List<OrderJobHeader> getOrderJobHeaderClient(int idClient) {
         return getOrdersJobHeaderEntity().getOrdersJobHeaderClient(idClient);
@@ -62,13 +68,20 @@ public class HRServiceFacade {
         return getMachinesEntity().getMachines();
     }
 
-    public Machine getCurrentMachine() {
-        return currentMachine;
+   public void addMachine(String description,String manufacturingYear,String mark , String model , String plateNumber){
+       getMachinesEntity().addMachine(description,manufacturingYear,mark,model,plateNumber);
+   }
+
+    public void addClient(String document, String bussinessName , String address , String cellphone, String state, String mail , String password){
+        getCustomersEntity().addCurrency(document,bussinessName,address,cellphone,state,mail,password);
     }
 
-    public void setCurrentEmployee(Machine currentMachine) {
-        this.currentMachine = currentMachine;
+    public void addUser(String id,String lastName,String firstName , String state , String document,String password){
+      getUsersEntity().addUser(id,lastName,firstName,state,document,password);
     }
+
+
+
 
 
 
