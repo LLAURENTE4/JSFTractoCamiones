@@ -37,10 +37,16 @@ public class HRServiceFacade {
         return machinesEntity;
     }
 
+
     private UsersEntity getUsersEntity() {
         UsersEntity usersEntity = new UsersEntity();
         usersEntity.setConnection(connection);
         return usersEntity;
+    }
+    private ClientsEntity getClientsEntity() {
+        ClientsEntity clientsEntity = new ClientsEntity();
+        clientsEntity.setConnection(connection);
+        return clientsEntity;
     }
 
 
@@ -59,6 +65,13 @@ public class HRServiceFacade {
 
     public void addUser(String id,String lastName,String firstName , String state , String document,String password){
         getUsersEntity().addUser(id,lastName,firstName,state,document,password);
+
+    }
+
+
+    public void addClient(String document, String bussinessName , String address , String cellphone, String state, String mail , String password){
+        getClientsEntity().addClient(document,bussinessName,address,cellphone,state,mail,password);
+
 
     }
 
