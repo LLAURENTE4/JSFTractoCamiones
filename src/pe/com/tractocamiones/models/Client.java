@@ -19,6 +19,8 @@ public class Client {
     private Date registrationDate;
 
 
+
+
     public int getId() {
         return id;
     }

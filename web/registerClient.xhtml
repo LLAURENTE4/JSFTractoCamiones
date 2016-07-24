@@ -18,7 +18,7 @@
         <h:form class="form-horizontal" id="dataCurrent">
             <div class="form-group" align="center">
                 <label class="col-sm-4"></label>
-                <label class="col-sm-4">REGISTER NEW USER</label>
+                <label class="col-sm-4">REGISTER NEW CLIENT</label>
                 <label class="col-sm-4"></label>
             </div>
 
@@ -83,7 +83,7 @@
                 <label class="col-sm-2"></label>
                 <label class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-4">
-                    <h:inputText type="text" binding="#{e_password}" class="form-control" placeholder="Password" name="v_password" value="#{client.password}"/>
+                    <h:inputSecret type="text" binding="#{e_password}" class="form-control" placeholder="Password" name="v_password" value="#{client.password}"/>
                 </div>
                 <label class="col-sm-4"></label>
             </div>
@@ -92,7 +92,7 @@
                 <label class="col-sm-2"></label>
                 <label class="col-sm-2 control-label">ReType Password</label>
                 <div class="col-sm-4">
-                    <h:inputText type="text" binding="#{e_password2}" class="form-control" placeholder="Password2" name="v_password2" value="#{client.password}"/>
+                    <h:inputSecret binding="#{e_password2}" class="form-control" placeholder="Password2" name="v_password2" value="#{client.password}"/>
                 </div>
                 <label class="col-sm-4"></label>
             </div>
