@@ -75,7 +75,7 @@ public class HRServiceFacade {
     }
 
     public void addClient(String document, String bussinessName , String address , String cellphone, String state, String mail , String password){
-        getCustomersEntity().addCurrency(document,bussinessName,address,cellphone,state,mail,password);}
+        getCustomersEntity().addClient(document,bussinessName,address,cellphone,state,mail,password);}
 
     public void setCurrentClient(Client currentClient) {
         this.currentClient = currentClient;

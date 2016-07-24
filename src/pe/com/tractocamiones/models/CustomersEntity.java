@@ -12,7 +12,7 @@ public class CustomersEntity {
 
     public void setConnection(Connection connection) { this.connection = connection;}
 
-    public void addCurrency(String document, String bussinessName , String address , String cellphone, String state, String mail , String password){
+    public void addClient(String document, String bussinessName , String address , String cellphone, String state, String mail , String password){
         String sql="INSERT INTO client (document,bussines_name,address,cellphone,state,mail,password) VALUES (?,?,?,?,?,?,?)  ";
 
         try {
