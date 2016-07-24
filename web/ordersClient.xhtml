@@ -16,11 +16,11 @@
                 <h:outputLabel value="Wellcome #{hrservicefacade.currentClient.bussinessName} (#{hrservicefacade.currentClient.id})"/>
                 <p></p>
 
-                <b:dataTable value="#{hrservicefacade.getOrderJobHeaderClient(hrservicefacade.currentClient.id)}" var="orderjobheader" >
-                    <b:dataTableColumn value=" #{orderjobheader.id}" order="asc" />
-                    <b:dataTableColumn value="#{orderjobheader.description}" />
-                    <b:dataTableColumn value="#{orderjobheader.price}" />
-                    <b:dataTableColumn value="#{orderjobheader.state}"  />
+                <b:dataTable value="#{hrservicefacade.getOrderJobHeaderClient(hrservicefacade.currentClient.id)}" var="orderjobheader">
+                    <b:dataTableColumn value=" #{orderjobheader.id}" order="asc" label="N° Order"/>
+                    <b:dataTableColumn value="#{orderjobheader.description}"/>
+                    <b:dataTableColumn value="#{orderjobheader.price}"/>
+                    <b:dataTableColumn value="#{orderjobheader.state}"/>
                     <b:dataTableColumn value="#{orderjobheader.registrationDate}" label="Registration Date"/>
                 </b:dataTable>
             </b:container>

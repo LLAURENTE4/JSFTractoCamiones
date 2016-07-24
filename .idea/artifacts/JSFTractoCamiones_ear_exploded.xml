@@ -8,7 +8,6 @@
       </element>
       <element id="directory" name="lib">
         <element id="library" level="project" name="BootsFaces-OSP-0.9.1-dist" />
-        <element id="library" level="project" name="BootsFaces-OSP-0.9.1-dist-default" />
       </element>
     </root>
   </artifact>

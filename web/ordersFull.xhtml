@@ -13,11 +13,11 @@
     <f:view>
         <h:form>
             <b:container layout="fluid">
-                <h:outputLabel value="Wellcome #{user.id} (#{user.lastName})"/>
+                <h:outputLabel value="Wellcome #{hrservicefacade.currentUser.firstName} #{hrservicefacade.currentUser.lastName}"/>
                 <p></p>
 
                 <b:dataTable value="#{hrservicefacade.getOrderJob()}" var="orderjobheader" >
-                    <b:dataTableColumn value=" #{getOrderJob.id}" order="asc" />
+                    <b:dataTableColumn value=" #{orderjobheader.id}" order="asc" label="N° Order"/>
                     <b:dataTableColumn value="#{orderjobheader.description}" />
                     <b:dataTableColumn value="#{orderjobheader.price}" />
                     <b:dataTableColumn value="#{orderjobheader.state}"  />
