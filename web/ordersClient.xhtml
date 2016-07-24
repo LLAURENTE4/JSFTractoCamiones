@@ -4,31 +4,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"/>
-    <h:outputScript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous" />
 
 </h:head>
 <div class="container">
     <f:view>
         <h:form>
-            <h:outputLabel value="HR Service"/>
-            <br/>
-            <h:outputLabel value="Lista de Ordenes"/>
-            <br/>
-            <h:dataTable value="#{hrservicefacade.getOrderJobHeaderClient(1)}" var="orderjobheader" class="table table-striped" paginator="true" >
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    #{orderjobheader.id}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">First Name</f:facet>
-                    #{orderjobheader.description}
-                </h:column>
+            <b:container layout="fluid">
+                <h:outputLabel value="Wellcome #{hrservicefacade.currentClient.bussinessName} (#{hrservicefacade.currentClient.id})"/>
+                <p></p>
 
-            </h:dataTable>
+                <b:dataTable value="#{hrservicefacade.getOrderJobHeaderClient(hrservicefacade.currentClient.id)}" var="orderjobheader" >
+                    <b:dataTableColumn value=" #{orderjobheader.id}" order="asc" />
+                    <b:dataTableColumn value="#{orderjobheader.description}" />
+                    <b:dataTableColumn value="#{orderjobheader.price}" />
+                    <b:dataTableColumn value="#{orderjobheader.state}"  />
+                    <b:dataTableColumn value="#{orderjobheader.registrationDate}" />
+
+                </b:dataTable>
+            </b:container>
         </h:form>
     </f:view>
 </div>

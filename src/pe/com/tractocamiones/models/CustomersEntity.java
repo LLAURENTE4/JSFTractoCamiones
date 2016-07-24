@@ -16,7 +16,7 @@ public class CustomersEntity {
     public void setConnection(Connection connection) { this.connection = connection;}
 
     public Client getDataClient(String eMail,String password){
-        String sql="select * from client where mail="+eMail+"password="+password;
+        String sql="select * from client where mail= '"+eMail+"' and password='"+password+"'";
         Client client=new Client();
 
         if(connection == null){
@@ -32,7 +32,7 @@ public class CustomersEntity {
                 client.setDocument(rs.getString("document"));
                 client.setAddress(rs.getString("address"));
                 client.setCellphone(rs.getString("cellphone"));
-                client.setState(rs.getString("first_name"));
+                client.setState(rs.getString("state"));
                 client.setId_user(rs.getString("id_user"));
                 client.setMail(rs.getString("mail"));
                 client.setPassword(rs.getString("password"));

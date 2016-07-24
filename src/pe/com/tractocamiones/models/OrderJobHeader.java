@@ -16,7 +16,7 @@ public class OrderJobHeader {
     private double price;
     private int idSalesSystem;
     private int idMachine;
-    private String State;
+    private String state;
     private Date registrationDate;
     private String idUser;
 
@@ -86,11 +86,11 @@ public class OrderJobHeader {
     }
 
     public String getState() {
-        return State;
+        return state;
     }
 
     public void setState(String state) {
-        State = state;
+        this.state = state;
     }
 
     public Date getRegistrationDate() {

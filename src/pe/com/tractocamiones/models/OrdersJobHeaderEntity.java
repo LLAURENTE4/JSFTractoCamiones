@@ -16,7 +16,7 @@ public class OrdersJobHeaderEntity {
     public void setConnection(Connection connection) { this.connection = connection;}
 
     public List<OrderJobHeader> getOrdersJobHeaderClient(int idClient){
-        String sql="select * from order_job_header where id="+idClient;
+        String sql="select * from order_job_header where id_cliente="+idClient;
         List<OrderJobHeader> ordersjobheader=new ArrayList<>();
         if(connection == null){
             return null;
@@ -31,6 +31,8 @@ public class OrdersJobHeaderEntity {
                 orderjobheader.setDescription(rs.getString("description"));
                 orderjobheader.setDescriptionService(rs.getString("description_service"));
                 orderjobheader.setPrice(rs.getDouble("price"));
+                orderjobheader.setState(rs.getString("state"));
+                orderjobheader.setRegistrationDate(rs.getDate("registration_date"));
                 ordersjobheader.add(orderjobheader);
             }
             return ordersjobheader;
