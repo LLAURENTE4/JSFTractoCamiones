@@ -33,7 +33,7 @@ public class CustomersEntity {
                 client.setAddress(rs.getString("address"));
                 client.setCellphone(rs.getString("cellphone"));
                 client.setState(rs.getString("state"));
-                client.setId_user(rs.getString("id_user"));
+                client.setIdUser(rs.getString("id_user"));
                 client.setMail(rs.getString("mail"));
                 client.setPassword(rs.getString("password"));
                 client.setRegistrationDate(rs.getDate("registration_date"));
