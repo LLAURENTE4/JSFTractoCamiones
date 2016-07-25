@@ -10,45 +10,37 @@
 
 
 </h:head>
+<h:body >
 <div class="container" align="center">
 
    <f:view>
-      <b:navBar brand="Brand" brandHref="#" inverse="true">
-         <b:navbarLinks>
-            <b:navLink value="Home" href="#"></b:navLink>
-            <b:navLink value="Link" href="#"></b:navLink>
-            <b:navLink value="Link" href="#"></b:navLink>
-         </b:navbarLinks>
-      </b:navBar>
-      <h:form id="loginForm" >
-         <b:container layout="fluid">
 
-
-            <b:row>
-               <b:column medium-screen="3"/>
-               <b:column medium-screen="2">
-                  <b><h:outputText value="USER ENTRY:"/></b>
-               </b:column>
-               <b:column span="2" offset="2" medium-screen="3">
-                  <h:commandButton type="submit" value="ENTRY" look="primary" style="width:100%" action="loginClient" />
-               </b:column>
-            </b:row>
-
+      <b:container layout="fluid">
+         <h:form id="loginForm" >
+               <b:row>
+                  <b:column medium-screen="3"/>
+                  <b:column medium-screen="2">
+                     <b><h:outputText value="USER ENTRY:"/></b>
+                  </b:column>
+                  <b:column medium-screen="2">
+                     <h:commandButton type="submit" value="ENTRY" look="primary" style="width:100%" action="loginUser" id="loginUser" />
+                  </b:column>
+               </b:row>
+         </h:form>
+         <h:form id="loginForm2" >
             <b:row>
                <b:column medium-screen="3"/>
                <b:column medium-screen="2">
                   <b><h:outputText value="CLIENT ENTRY:"/></b>
                </b:column>
-               <b:column span="2" offset="2" medium-screen="3">
-                  <h:commandButton type="submit" value="ENTRY" look="primary" style="width:100%" action="loginUser" />
+               <p></p>
+               <b:column medium-screen="2">
+                  <h:commandButton type="submit" value="ENTRY" look="primary" style="width:100%" action="loginClient" id="loginClient"/>
                </b:column>
             </b:row>
-
-
-
-         </b:container>
-
-      </h:form>
+         </h:form>
+      </b:container>
    </f:view>
 </div>
+</h:body>
 </html>

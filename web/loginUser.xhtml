@@ -15,7 +15,7 @@
             <b:container layout="fluid">
 
                 <b:row>
-                    <b:column medium-screen="5"/>
+                    <b:column medium-screen="4"/>
                     <b:column medium-screen="4">
                         <br/>
                         <b><h:outputLabel value="WELCOME USER"/></b>
@@ -52,8 +52,11 @@
                 </b:row>
                 <b:row>
                     <b:column medium-screen="4"></b:column>
-                    <b:column span="2" offset="2" medium-screen="3">
-                        <h:commandButton type="submit" value="login" look="primary" style="width:100%" action="ordersFull" actionListener="#{hrservicefacade.setDataUser(user_id.value,user_password.value)}"/>
+                    <b:column medium-screen="2">
+                        <h:outputLabel value="#{hrservicefacade.message}"/>
+                    </b:column>
+                    <b:column medium-screen="2">
+                        <b:commandButton type="submit" value="login" look="primary" style="width:100%" action="#{hrservicefacade.setDataUser(user_id.value,user_password.value)}"/>
                     </b:column>
                 </b:row>
             </b:container>

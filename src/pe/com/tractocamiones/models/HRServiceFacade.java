@@ -18,6 +18,10 @@ public class HRServiceFacade {
     private Machine currentMachine;
     private Client currentClient;
     private User currentUser;
+    private String message;
+
+
+
 
     public HRServiceFacade() {
         try {
@@ -63,12 +67,29 @@ public class HRServiceFacade {
 
     public Client getCurrentClient(){return currentClient;}
     public void setCurrentClient(Client currentClient){this.currentClient = currentClient;}
-    public void setDataClient(String email,String password){this.currentClient=getCustomersEntity().getDataClient(email,password);}
+    public String setDataClient(String email,String password){
+        this.currentClient=getCustomersEntity().getDataClient(email,password);
+        if("".equals(currentClient.getBussinessName()) || currentClient.getBussinessName()==null){
+            this.message="Incorrect data";
+            return "false";
+        }else{
+            this.message="";
+            return "true";
+        }
+    }
 
     public User getCurrentUser(){return currentUser;}
     public void setCurrentUser(User currentUser){this.currentUser = currentUser;}
-    public void setDataUser(String id,String password){this.currentUser=getUsersEntity().getDataUser(id,password);}
-
+    public String setDataUser(String id,String password){
+        this.currentUser=getUsersEntity().getDataUser(id,password);
+        if("".equals(currentUser.getLastName()) || currentUser.getLastName()==null){
+            this.message="Incorrect data";
+            return "false";
+        }else{
+            this.message="";
+            return "true";
+        }
+    }
 
     public int getMachinesCount(){return getMachinesEntity().getMachines().size();}
 
@@ -85,5 +106,14 @@ public class HRServiceFacade {
     public void addUser(String id,String lastName,String firstName , String state , String document,String password){
         getUsersEntity().addUser(id,lastName,firstName,state,document,password);
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
 
 }
