@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+</h:head>
+<f:view>
+    <h:form>
+        <b:container layout="fluid" >
+            <h:outputLabel value="List of orders"/>
+            <p></p>
+            <b:dataTable value="#{hrservicefacade.orderJob}" var="orderjobheader">
+                <b:dataTableColumn value="#{orderjobheader.id}" order="asc" label="N° Order" />
+                <b:dataTableColumn value="#{orderjobheader.description}" />
+                <b:dataTableColumn value="#{orderjobheader.price}" />
+                <b:dataTableColumn value="#{orderjobheader.idState}"  label="State"/>
+                <b:dataTableColumn value="#{orderjobheader.registrationDate}" label="Registration Date"/>
+            </b:dataTable>
+        </b:container>
+    </h:form>
+</f:view>
+</html>
