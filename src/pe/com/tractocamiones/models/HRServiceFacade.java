@@ -18,16 +18,16 @@ public class HRServiceFacade {
     private Machine currentMachine;
     private Client currentClient;
     private User currentUser;
-    private String message;
-
-
-
+    private String loginClientError;
+    private String loginUserError;
 
     public HRServiceFacade() {
         try {
             InitialContext ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource_tractocamiones");
             connection = ds.getConnection();
+            currentClient=new Client();
+            currentUser=new User();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
@@ -67,27 +67,27 @@ public class HRServiceFacade {
 
     public Client getCurrentClient(){return currentClient;}
     public void setCurrentClient(Client currentClient){this.currentClient = currentClient;}
-    public String setDataClient(String email,String password){
-        this.currentClient=getCustomersEntity().getDataClient(email,password);
+    public String loginClient(){
+        this.currentClient=getCustomersEntity().getDataClient(currentClient.getMail(), currentClient.getPassword());
         if("".equals(currentClient.getBussinessName()) || currentClient.getBussinessName()==null){
-            this.message="Incorrect data";
-            return "false";
+            this.loginClientError="Incorrect data";
+            return "loginClient";
         }else{
-            this.message="";
-            return "true";
+            this.loginClientError="";
+            return "ordersClient";
         }
     }
 
     public User getCurrentUser(){return currentUser;}
     public void setCurrentUser(User currentUser){this.currentUser = currentUser;}
-    public String setDataUser(String id,String password){
-        this.currentUser=getUsersEntity().getDataUser(id,password);
+    public String loginUser(){
+        this.currentUser=getUsersEntity().getDataUser(currentUser.getId(),currentUser.getPassword());
         if("".equals(currentUser.getLastName()) || currentUser.getLastName()==null){
-            this.message="Incorrect data";
-            return "false";
+            this.loginUserError="Incorrect data";
+            return "loginUser";
         }else{
-            this.message="";
-            return "true";
+            this.loginUserError="";
+            return "userMain";
         }
     }
 
@@ -107,13 +107,20 @@ public class HRServiceFacade {
         getUsersEntity().addUser(id,lastName,firstName,state,document,password);
     }
 
-    public String getMessage() {
-        return message;
+    public String getLoginClientError() {
+        return loginClientError;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setLoginClientError(String loginClientError) {
+        this.loginClientError = loginClientError;
     }
 
+    public String getLoginUserError() {
+        return loginUserError;
+    }
+
+    public void setLoginUserError(String loginUserError) {
+        this.loginUserError = loginUserError;
+    }
 
 }

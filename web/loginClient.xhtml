@@ -12,7 +12,7 @@
 <div class="container" align="center">
 
     <f:view>
-        <h:form id="loginForm" >
+        <h:form id="Client">
             <b:container layout="fluid">
 
                 <b:row>
@@ -30,11 +30,14 @@
                         <b><h:outputText value="E-Mail:"/></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputText placeholder="e-mail" binding="#{client_email}">
+                        <b:inputText id="EMail" placeholder="e-mail" value="#{hrservicefacade.currentClient.mail}" required="true">
                             <f:facet name="prepend">
                                 <h:outputText value="@" />
                             </f:facet>
                         </b:inputText>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <h:message for="EMail" style="color:red"/>
                     </b:column>
                 </b:row>
                 <b:row>
@@ -43,21 +46,23 @@
                         <b><h:outputText value="Password:" /></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputSecret placeholder="Password" binding="#{client_password}">
+                        <b:inputSecret id="Password" placeholder="Password" value="#{hrservicefacade.currentClient.password}" required="true">
                             <f:facet name="prepend">
                                 <b:icon name="glyphicon glyphicon-pencil" />
                             </f:facet>
                         </b:inputSecret>
                     </b:column>
-                    <b:column medium-screen="4"></b:column>
+                    <b:column medium-screen="4">
+                        <h:message for="Password" style="color:red"/>
+                    </b:column>
                 </b:row>
                 <b:row>
                     <b:column medium-screen="4"></b:column>
                     <b:column medium-screen="2">
-                        <h:outputLabel value="#{hrservicefacade.message}"/>
+                        <h:outputLabel value="#{hrservicefacade.loginClientError}"/>
                     </b:column>
                     <b:column medium-screen="2">
-                        <b:commandButton type="submit" value="Login" look="primary" style="width:100%" action="#{hrservicefacade.setDataClient(client_email.value,client_password.value)}" />
+                        <b:commandButton type="submit" value="Login" look="primary" style="width:100%" action="#{hrservicefacade.loginClient()}" />
                     </b:column>
                 </b:row>
             </b:container>
