@@ -9,26 +9,29 @@
 <h:head>
 </h:head>
 <h:body>
+    <b:tabView rendered="false" />
+    <b:switch rendered="false" />
+    <b:selectMultiMenu rendered="false" />
     <f:view>
         <h:form>
             <b:tabView rendered="false" />
             <b:switch rendered="false" />
             <b:selectMultiMenu rendered="false" />
-            <b:navBar brand="Tracto Camiones - User">
+            <b:navBar brand="Tracto Camiones - Client" update="@form @(.content)"  onclick="ajax:hrservicefacade.setPageClientMain('ordersClient.xhtml')" >
                 <b:navbarLinks>
-                    <b:navLink value="Orders All" update="@form @(.content)" onclick="ajax:hrservicefacade.setPageUserMain('ordersFull.xhtml')"/>
+                    <b:navLink value="Orders" update="@form @(.content)" onclick="ajax:hrservicefacade.setPageClientMain('ordersClient.xhtml')"/>
                     <b:dropMenu value="Register">
-                        <b:navLink value="New Client" update="@form @(.content)" onclick="ajax:hrservicefacade.setPageUserMain('registerClient.xhtml')"/>
-                        <b:navLink value="New User"  update="@form @(.content)" onclick="ajax:hrservicefacade.setPageUserMain('registerUser.xhtml')"/>
+                        <b:navLink value="New Machine" update="@form @(.content)" onclick="ajax:hrservicefacade.setPageClientMain('registerMachine.xhtml')"/>
+                        <b:navLink value="New Order" update="@form @(.content)" onclick="ajax:hrservicefacade.setPageClientMain('registerOrderClient.xhtml')"/>
                     </b:dropMenu>
                 </b:navbarLinks>
                 <b:navbarLinks pull="right" styleClass="hidden-xs">
-                    <h:outputLabel value="Welcome #{hrservicefacade.currentUser.firstName} #{hrservicefacade.currentUser.lastName}"/>
+                    <h:outputLabel value="Wellcome #{hrservicefacade.currentClient.bussinessName} (#{hrservicefacade.currentClient.id})"/>
                 </b:navbarLinks>
             </b:navBar>
         </h:form>
         <b:column class="content">
-            <ui:include src="#{hrservicefacade.pageUserMain}"/>
+            <ui:include src="#{hrservicefacade.pageClientMain}"/>
         </b:column>
     </f:view>
 </h:body>

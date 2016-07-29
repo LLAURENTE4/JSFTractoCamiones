@@ -7,23 +7,19 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h1="http://java.sun.com/jsf/html">
 <h:head>
-
 </h:head>
-<div class="container" align="center">
-
+<h:body>
     <f:view>
-        <h:form id="Client">
-            <b:container layout="fluid">
-
+        <b:container layout="fluid">
+            <h:form id="Client">
                 <b:row>
                     <b:column medium-screen="4"/>
                     <b:column medium-screen="4">
                         <br/>
-                        <b><h:outputLabel value="WELCOME CLIENT"/></b>
+                        <div align="center"><b><h:outputLabel value="WELCOME CLIENT"/></b></div>
                         <br/>
                     </b:column>
                 </b:row>
-                <p></p>
                 <b:row>
                     <b:column medium-screen="3"/>
                     <b:column medium-screen="1">
@@ -65,9 +61,8 @@
                         <b:commandButton type="submit" value="Login" look="primary" style="width:100%" action="#{hrservicefacade.loginClient()}" />
                     </b:column>
                 </b:row>
-            </b:container>
-
-        </h:form>
+            </h:form>
+        </b:container>
     </f:view>
-</div>
+</h:body>
 </html>

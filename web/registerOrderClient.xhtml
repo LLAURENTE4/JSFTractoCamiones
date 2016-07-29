@@ -5,51 +5,48 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h1="http://java.sun.com/jsf/html">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 </h:head>
-<h:body>
     <f:view>
         <b:container layout="fluid">
-            <h:form id="User" >
+            <h:form id="Machine">
+                <b:tabView rendered="false" />
+                <b:switch rendered="false" />
+                <b:selectMultiMenu rendered="false" />
                 <b:row>
                     <b:column medium-screen="4"/>
                     <b:column medium-screen="4">
                         <br/>
-                        <div align="center"><b><h:outputLabel value="WELCOME USER"/></b></div>
+                        <div align="center"><b><h:outputLabel value="REGISTER ORDER"/></b></div>
                         <br/>
                     </b:column>
                 </b:row>
+                <p></p>
                 <b:row>
-                    <b:column medium-screen="3"/>
-                    <b:column medium-screen="1">
-                        <b><h:outputText value="Id:"/></b>
+                    <b:column medium-screen="2"/>
+                    <b:column medium-screen="2">
+                        <div align="left"><b><h:outputText value="Description:" text-align="center"/></b></div>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputText id="Id" placeholder="Id" value="#{hrservicefacade.currentUser.id}" required="true">
-                            <f:facet name="prepend">
-                                <b:icon name="glyphicon glyphicon-user" />
-                            </f:facet>
-                        </b:inputText>
+                        <b:inputText id="Description" placeholder="Description" value="#{hrservicefacade.currentOrderJobHeader.description}" required="true"/>
                     </b:column>
                     <b:column medium-screen="4">
-                        <h:message for="Id" style="color:red"/>
+                        <h:message for="Description" style="color:red"/>
                     </b:column>
                 </b:row>
                 <b:row>
-                    <b:column medium-screen="3"/>
-                    <b:column medium-screen="1">
-                        <b><h:outputText value="Password:" /></b>
+                    <b:column medium-screen="2"/>
+                    <b:column medium-screen="2">
+                        <div align="left"><b><h:outputText value="Máquina:" text-align="center"/></b></div>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputSecret id="Password" placeholder="Password" value="#{hrservicefacade.currentUser.password}" required="true">
-                            <f:facet name="prepend">
-                                <b:icon name="glyphicon glyphicon-pencil" />
-                            </f:facet>
-                        </b:inputSecret>
+                        <b:selectOneMenu value="#{hrservicefacade.machines}" required="true" id="idMachine">
+                            <f:selectItems value="#{hrservicefacade.machines}" var="cmachine" itemValue="#{cmachine.id}" itemLabel="#{cmachine.description}"/>
+                        </b:selectOneMenu>
                     </b:column>
                     <b:column medium-screen="4">
-                        <h:message for="Password" style="color:red"/>
+                        <h:message for="idMachine" style="color:red"/>
                     </b:column>
                 </b:row>
                 <b:row>
@@ -58,11 +55,10 @@
                         <h:outputLabel value="#{hrservicefacade.loginUserError}"/>
                     </b:column>
                     <b:column medium-screen="2">
-                        <b:commandButton type="submit" value="login" look="primary" style="width:100%" action="#{hrservicefacade.loginUser()}"/>
+                        <b:commandButton type="submit" value="Register" look="primary" style="width:100%" action="#{hrservicefacade.addMachine()}"/>
                     </b:column>
                 </b:row>
             </h:form>
         </b:container>
     </f:view>
-</h:body>
 </html>

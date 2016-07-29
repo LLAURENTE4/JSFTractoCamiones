@@ -18,8 +18,11 @@ public class HRServiceFacade {
     private Machine currentMachine;
     private Client currentClient;
     private User currentUser;
+    private OrderJobHeader currentOrderJobHeader;
     private String loginClientError;
     private String loginUserError;
+    private String pageUserMain="ordersFull.xhtml";
+    private String pageClientMain="ordersClient.xhtml";
 
     public HRServiceFacade() {
         try {
@@ -45,6 +48,11 @@ public class HRServiceFacade {
         UsersEntity usersEntity = new UsersEntity();
         usersEntity.setConnection(connection);
         return usersEntity;
+    }
+    private StatesEntity getStatesEntity() {
+        StatesEntity statesEntity = new StatesEntity();
+        statesEntity.setConnection(connection);
+        return statesEntity;
     }
     private CustomersEntity getCustomersEntity() {
         CustomersEntity customersEntity = new CustomersEntity();
@@ -75,7 +83,7 @@ public class HRServiceFacade {
             return "loginClient";
         }else{
             this.loginClientError="";
-            return "ordersClient";
+            return "clientMain";
         }
     }
 
@@ -97,8 +105,10 @@ public class HRServiceFacade {
 
     public List<Machine> getMachines(){return getMachinesEntity().getMachines();}
 
-    public void addMachine(String description,String manufacturingYear,String mark , String model , String plateNumber){
-        getMachinesEntity().addMachine(description,manufacturingYear,mark,model,plateNumber);
+    public List<State> getStates(){return getStatesEntity().getStates();}
+
+    public void addMachine(){
+        getMachinesEntity().addMachine(currentMachine.getDescription(),currentMachine.getManufacturingYear(),currentMachine.getMark(),currentMachine.getModel(),currentMachine.getPlateNumber());
     }
 
     public void addClient(String document, String bussinessName , String address , String cellphone, String state, String mail , String password){
@@ -125,4 +135,36 @@ public class HRServiceFacade {
         this.loginUserError = loginUserError;
     }
 
+
+    public String getPageUserMain() {
+        return pageUserMain;
+    }
+
+    public void setPageUserMain(String pageUserMain) {
+        this.pageUserMain = pageUserMain;
+    }
+
+    public String getPageClientMain() {
+        return pageClientMain;
+    }
+
+    public void setPageClientMain(String pageClientMain) {
+        this.pageClientMain = pageClientMain;
+    }
+
+    public Machine getCurrentMachine() {
+        return currentMachine;
+    }
+
+    public void setCurrentMachine(Machine currentMachine) {
+        this.currentMachine = currentMachine;
+    }
+
+    public OrderJobHeader getCurrentOrderJobHeader() {
+        return currentOrderJobHeader;
+    }
+
+    public void setCurrentOrderJobHeader(OrderJobHeader currentOrderJobHeader) {
+        this.currentOrderJobHeader = currentOrderJobHeader;
+    }
 }
