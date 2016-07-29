@@ -65,6 +65,7 @@ public class HRServiceFacade {
         return getOrdersJobHeaderEntity().getOrdersJob();
     }
 
+    /*Current Client*/
     public Client getCurrentClient(){return currentClient;}
     public void setCurrentClient(Client currentClient){this.currentClient = currentClient;}
     public String loginClient(){
@@ -78,11 +79,12 @@ public class HRServiceFacade {
         }
     }
 
+    /*Current User*/
     public User getCurrentUser(){return currentUser;}
     public void setCurrentUser(User currentUser){this.currentUser = currentUser;}
     public String loginUser(){
         this.currentUser=getUsersEntity().getDataUser(currentUser.getId(),currentUser.getPassword());
-        if("".equals(currentUser.getLastName()) || currentUser.getLastName()==null){
+        if("".equals(currentUser.getId()) || currentUser.getId()==null){
             this.loginUserError="Incorrect data";
             return "loginUser";
         }else{
