@@ -1,11 +1,17 @@
 package pe.com.tractocamiones.models;
 
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by llaurente on 29/07/2016.
  */
+
+@ManagedBean(name = "orderjobdetail")
+@SessionScoped
 public class OrderJobDetail {
     private Integer id;
     private Integer secuence;
@@ -14,6 +20,11 @@ public class OrderJobDetail {
     private Double price;
     private String idUser;
     private Date registrationDate;
+
+
+
+
+
 
     public Integer getId() {
         return id;
@@ -70,4 +81,9 @@ public class OrderJobDetail {
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
+
+
+
+
+
 }
