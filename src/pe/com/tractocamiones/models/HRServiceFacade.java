@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 //import org.primefaces.context.RequestContext;
@@ -26,6 +27,24 @@ public class HRServiceFacade {
     private String loginUserError;
     private String pageUserMain="ordersFull.xhtml";
     private String pageClientMain="ordersClient.xhtml";
+    private List<OrderJobDetail> listaprueba= new ArrayList<>();
+
+
+
+public void agregar( Integer id,Integer secuence,Integer idResource,Double quantity,Double price,String idUser){
+    OrderJobDetail detalle = new OrderJobDetail();
+    detalle.setId(id);
+    detalle.setSecuence(secuence);
+    detalle.setIdResource(idResource);
+    detalle.setQuantity(quantity);
+    detalle.setPrice(price);
+    detalle.setIdUser(idUser);
+    this.getListaprueba().add(detalle);
+}
+
+    public void  addOrdersJobDetail(){
+        getOrdersJobDetailEntity().addOrdersJobDetail(listaprueba);
+    }
 
     public HRServiceFacade() {
         try {
@@ -49,6 +68,11 @@ public class HRServiceFacade {
         machinesEntity.setConnection(connection);
         return machinesEntity;
     }
+    private ResourcesEntity getResourceEntity() {
+        ResourcesEntity resourcesEntity = new ResourcesEntity();
+        resourcesEntity.setConnection(connection);
+        return resourcesEntity;
+    }
     private UsersEntity getUsersEntity() {
         UsersEntity usersEntity = new UsersEntity();
         usersEntity.setConnection(connection);
@@ -69,13 +93,18 @@ public class HRServiceFacade {
         ordersjobheaderEntity.setConnection(connection);
         return ordersjobheaderEntity;
     }
-
+    private OrdersJobDetailEntity getOrdersJobDetailEntity() {
+        OrdersJobDetailEntity ordersJobDetailEntity = new OrdersJobDetailEntity();
+        ordersJobDetailEntity.setConnection(connection);
+        return ordersJobDetailEntity;
+    }
     public List<OrderJobHeader> getOrderJobHeaderClient(int idClient) {
         return getOrdersJobHeaderEntity().getOrdersJobHeaderClient(idClient);
     }
-    
+
+    /* -------lista de ordenes de Trabajo -----------------*/
     public List<OrderJobHeader> getOrderJob() {
-        return getOrdersJobHeaderEntity().getOrdersJob();
+    return getOrdersJobHeaderEntity().getOrdersJob();
     }
 
     /*Current Client*/
@@ -108,7 +137,7 @@ public class HRServiceFacade {
 
     public int getMachinesCount(){return getMachinesEntity().getMachines().size();}
 
-    public List<Machine> getMachines(){return getMachinesEntity().getMachines();}
+    public List<Resource> getResources(){return getResourceEntity().getResource();}
 
     public List<State> getStates(){return getStatesEntity().getStates();}
 
@@ -195,3 +224,23 @@ public class HRServiceFacade {
     </application>
     */
 }
+
+    public List<Machine> getMachines(){return getMachinesEntity().getMachines();}
+
+    public List<OrderJobDetail> getListaprueba() {
+        return listaprueba;
+    }
+
+    public void setListaprueba(List<OrderJobDetail> listaprueba) {
+        this.listaprueba = listaprueba;
+    }
+
+    // public void setOrderDetails(Integer id,Integer secuence,Integer idResource,Double quantity,Double price,String idUser){
+     //   getOrdersJobDetailEntity().Details(id,secuence,idResource,quantity,price,idUser);
+    //}
+
+//public List<OrderJobDetail> getOrdersDetails(){
+
+  //         return getOrdersJobDetailEntity().getLista();
+    //    }
+    }

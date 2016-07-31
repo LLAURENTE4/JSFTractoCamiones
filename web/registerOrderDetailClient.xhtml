@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
+<h:head>
+</h:head>
+<f:view>
+    <h:form>
+        <b:container layout="fluid" >
+            <p:outputLabel value="List of orders"/>
+            <p></p>
+
+            <p:outputLabel  value="id" />
+            <p:inputText value="#{orderjobdetail.id}" binding="#{a}"/>
+            <p></p>
+            <p:outputLabel  value="secuence" />
+            <p:inputText value="#{orderjobdetail.secuence}" binding="#{b}"/>
+            <p></p>
+
+            <p></p>
+            <p:outputLabel  value="Quantity" />
+            <p:inputText value="#{orderjobdetail.quantity}" binding="#{d}"/>
+
+            <p:outputLabel  value="Price" />
+            <p:inputText value="#{orderjobdetail.price}" binding="#{e}"/>
+
+            <p:outputLabel  value="IdUser" />
+            <p:inputText value="#{orderjobdetail.idUser}" binding="#{f}"/>
+
+
+            <p:commandButton type="submit" class="btn btn-default" value="Save"  actionListener="#{hrservicefacade.agregar(a.value,b.value,c.value,d.value,e.value,f.value) }" update="det"/>
+
+
+            <b:dataTable id="det" value="#{hrservicefacade.listaprueba}" var="detail" >
+                <b:dataTableColumn value="#{detail.id}" order="asc" label="N° Order" />
+                <b:dataTableColumn value="#{detail.secuence}" label="Secuence" />
+                <b:dataTableColumn value="#{detail.idResource}" label="Resource" />
+                <b:dataTableColumn value="#{detail.quantity}" label="quantity" />
+                <b:dataTableColumn value="#{detail.price}" label="price" />
+                <b:dataTableColumn value="#{detail.idUser}" label="idUser" />
+                <b:dataTableColumn value="#{detail.registrationDate}" label="registrationDate" />
+
+
+            </b:dataTable>
+            <p:commandButton type="submit" class="btn btn-default" value="register"  actionListener="#{hrservicefacade.addOrdersJobDetail() }"/>
+        </b:container>
+    </h:form>
+</f:view>
+</html>
