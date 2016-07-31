@@ -7,8 +7,9 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h1="http://java.sun.com/jsf/html">
 <h:head>
+    <link rel="stylesheet" href="css/style_main.css"/>
 </h:head>
-<h:body>
+<h:body  id="main">
     <f:view>
         <b:container layout="fluid">
             <h:form id="User" >
@@ -26,7 +27,7 @@
                         <b><h:outputText value="Id:"/></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputText id="Id" placeholder="Id" value="#{hrservicefacade.currentUser.id}" required="true">
+                        <b:inputText id="Id" placeholder="Id" value="#{hrservicefacade.currentUser.id}" required="true" requiredMessage="Id is required.">
                             <f:facet name="prepend">
                                 <b:icon name="glyphicon glyphicon-user" />
                             </f:facet>
@@ -42,7 +43,7 @@
                         <b><h:outputText value="Password:" /></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputSecret id="Password" placeholder="Password" value="#{hrservicefacade.currentUser.password}" required="true">
+                        <b:inputSecret id="Password" placeholder="Password" value="#{hrservicefacade.currentUser.password}" required="true" requiredMessage="Password is required.">
                             <f:facet name="prepend">
                                 <b:icon name="glyphicon glyphicon-pencil" />
                             </f:facet>

@@ -15,6 +15,7 @@ public class Machine {
     private String manufacturingYear;
     private String description;
     private String plateNumber;
+    private String code;
 
 
     public int getId() {
@@ -63,5 +64,13 @@ public class Machine {
 
     public void setPlateNumber(String plateNumber) {
         this.plateNumber = plateNumber;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

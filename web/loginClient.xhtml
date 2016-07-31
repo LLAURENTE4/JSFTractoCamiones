@@ -7,8 +7,9 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h1="http://java.sun.com/jsf/html">
 <h:head>
+    <link rel="stylesheet" href="css/style_main.css"/>
 </h:head>
-<h:body>
+<h:body id="main">
     <f:view>
         <b:container layout="fluid">
             <h:form id="Client">
@@ -26,7 +27,7 @@
                         <b><h:outputText value="E-Mail:"/></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputText id="EMail" placeholder="e-mail" value="#{hrservicefacade.currentClient.mail}" required="true">
+                        <b:inputText id="EMail" placeholder="e-mail" value="#{hrservicefacade.currentClient.mail}" required="true" requiredMessage="Mail is required">
                             <f:facet name="prepend">
                                 <h:outputText value="@" />
                             </f:facet>
@@ -42,7 +43,7 @@
                         <b><h:outputText value="Password:" /></b>
                     </b:column>
                     <b:column medium-screen="4">
-                        <b:inputSecret id="Password" placeholder="Password" value="#{hrservicefacade.currentClient.password}" required="true">
+                        <b:inputSecret id="Password" placeholder="Password" value="#{hrservicefacade.currentClient.password}" required="true" requiredMessage="Password is required.">
                             <f:facet name="prepend">
                                 <b:icon name="glyphicon glyphicon-pencil" />
                             </f:facet>

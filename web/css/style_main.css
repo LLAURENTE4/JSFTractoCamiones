@@ -1,0 +1,17 @@
+#main{
+    background: url("../images/wallpaper_index.jpg")
+    no-repeat fixed center;
+
+    -webkit-background-size: cover;
+
+    -moz-background-size: cover;
+
+    -o-background-size: cover;
+
+    background-size: cover;
+}
+#user{
+    background-color: whitesmoke;
+
+
+}

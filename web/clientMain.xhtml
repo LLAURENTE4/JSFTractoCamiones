@@ -7,16 +7,14 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+    <link rel="stylesheet" href="css/style_main.css"/>
 </h:head>
-<h:body>
+<h:body id="user">
     <b:tabView rendered="false" />
     <b:switch rendered="false" />
     <b:selectMultiMenu rendered="false" />
     <f:view>
         <h:form>
-            <b:tabView rendered="false" />
-            <b:switch rendered="false" />
-            <b:selectMultiMenu rendered="false" />
             <b:navBar brand="Tracto Camiones - Client" update="@form @(.content)"  onclick="ajax:hrservicefacade.setPageClientMain('ordersClient.xhtml')" >
                 <b:navbarLinks>
                     <b:navLink value="Orders" update="@form @(.content)" onclick="ajax:hrservicefacade.setPageClientMain('ordersClient.xhtml')"/>
@@ -30,9 +28,11 @@
                 </b:navbarLinks>
             </b:navBar>
         </h:form>
-        <b:column class="content">
-            <ui:include src="#{hrservicefacade.pageClientMain}"/>
-        </b:column>
+        <h:form>
+            <b:column class="content">
+                <ui:include src="#{hrservicefacade.pageClientMain}"/>
+            </b:column>
+        </h:form>
     </f:view>
 </h:body>
 </html>

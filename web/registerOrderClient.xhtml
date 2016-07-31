@@ -26,7 +26,7 @@
                 <b:row>
                     <b:column medium-screen="2"/>
                     <b:column medium-screen="2">
-                        <div align="left"><b><h:outputText value="Description:" text-align="center"/></b></div>
+                        <div align="left"><b><h:outputText value="Description:"/></b></div>
                     </b:column>
                     <b:column medium-screen="4">
                         <b:inputText id="Description" placeholder="Description" value="#{hrservicefacade.currentOrderJobHeader.description}" required="true"/>
@@ -38,11 +38,23 @@
                 <b:row>
                     <b:column medium-screen="2"/>
                     <b:column medium-screen="2">
-                        <div align="left"><b><h:outputText value="Máquina:" text-align="center"/></b></div>
+                        <div align="left"><b><h:outputText value="Description Service:"/></b></div>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputText id="descriptionService" placeholder="Description Service" value="#{hrservicefacade.currentOrderJobHeader.descriptionService}" required="true"/>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <h:message for="descriptionService" style="color:red"/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column medium-screen="2"/>
+                    <b:column medium-screen="2">
+                        <div align="left"><b><h:outputText value="Máquina:"/></b></div>
                     </b:column>
                     <b:column medium-screen="4">
                         <b:selectOneMenu value="#{hrservicefacade.machines}" required="true" id="idMachine">
-                            <f:selectItems value="#{hrservicefacade.machines}" var="cmachine" itemValue="#{cmachine.id}" itemLabel="#{cmachine.description}"/>
+                            <f:selectItems value="#{hrservicefacade.machines}" var="cmachine" itemValue="#{cmachine.id}" itemLabel="VIN #{cmachine.code}, #{cmachine.description}"/>
                         </b:selectOneMenu>
                     </b:column>
                     <b:column medium-screen="4">

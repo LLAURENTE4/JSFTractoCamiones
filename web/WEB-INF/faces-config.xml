@@ -13,6 +13,10 @@
             <from-outcome>loginUser</from-outcome>
             <to-view-id>/loginUser.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>ordersFull</from-outcome>
+            <to-view-id>/ordersFull.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/loginClient.xhtml</from-view-id>

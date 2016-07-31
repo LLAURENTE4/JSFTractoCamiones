@@ -76,6 +76,7 @@ public class MachinesEntity {
                 machine.setManufacturingYear(rs.getString("manufacturing_year"));
                 machine.setDescription(rs.getString("description"));
                 machine.setPlateNumber(rs.getString("plate_number"));
+                machine.setCode(rs.getString("code"));
 
                 machines.add(machine);
             }

@@ -7,7 +7,10 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+//import org.primefaces.context.RequestContext;
 
 @ManagedBean(name = "hrservicefacade", eager = true)
 @SessionScoped
@@ -31,6 +34,8 @@ public class HRServiceFacade {
             connection = ds.getConnection();
             currentClient=new Client();
             currentUser=new User();
+            currentOrderJobHeader=new OrderJobHeader();
+            currentMachine=new Machine();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
@@ -167,4 +172,26 @@ public class HRServiceFacade {
     public void setCurrentOrderJobHeader(OrderJobHeader currentOrderJobHeader) {
         this.currentOrderJobHeader = currentOrderJobHeader;
     }
+    /* Popup para primefaces , agregar jar de primefaces y importar import org.primefaces.context.RequestContext;
+    public void abrirDialogo(){
+        Map<String,Object> opcoes =new HashMap<>();
+        opcoes.put("modal",true);
+        opcoes.put("resizable",false);
+        RequestContext.getCurrentInstance().openDialog("ordersFull",opcoes,null);
+    }
+    <b:row>
+        <b:column medium-screen="4"></b:column>
+        <b:column medium-screen="2">
+            <p:commandButton value="popup" action="#{hrservicefacade.abrirDialogo}" process="@this" update="@none" icon="ui-icon-search" title="Pesquisa"/>
+        </b:column>
+        <b:column medium-screen="2">
+            <b:commandButton type="submit" value="Register" look="success" style="width:100%" />
+        </b:column>
+    </b:row>
+    <application>
+        <action-listener>org.primefaces.application.DialogActionListener</action-listener>
+        <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
+        <view-handler>org.primefaces.application.DialogViewHandler</view-handler>
+    </application>
+    */
 }

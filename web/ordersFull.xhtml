@@ -7,20 +7,26 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+    <link rel="stylesheet" href="css/style_main.css"/>
 </h:head>
     <f:view>
-        <h:form>
-            <b:container layout="fluid" >
+        <b:container layout="fluid" >
+            <h:form>
+
+                <b:tabView rendered="false" />
+                <b:switch rendered="false" />
+                <b:selectMultiMenu rendered="false" />
                 <h:outputLabel value="List of orders"/>
                 <p></p>
                 <b:dataTable value="#{hrservicefacade.orderJob}" var="orderjobheader">
-                    <b:dataTableColumn value="#{orderjobheader.id}" order="asc" label="N° Order" />
+                    <b:dataTableColumn value="#{orderjobheader.id}" order="asc" label="N° Order"/>
                     <b:dataTableColumn value="#{orderjobheader.description}" />
                     <b:dataTableColumn value="#{orderjobheader.price}" />
                     <b:dataTableColumn value="#{orderjobheader.idState}"  label="State"/>
                     <b:dataTableColumn value="#{orderjobheader.registrationDate}" label="Registration Date"/>
                 </b:dataTable>
+            </h:form>
             </b:container>
-        </h:form>
+
     </f:view>
 </html>
