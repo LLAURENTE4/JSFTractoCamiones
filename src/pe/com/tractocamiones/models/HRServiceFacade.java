@@ -223,7 +223,7 @@ public void agregar( Integer id,Integer secuence,Integer idResource,Double quant
         <view-handler>org.primefaces.application.DialogViewHandler</view-handler>
     </application>
     */
-}
+
 
     public List<Machine> getMachines(){return getMachinesEntity().getMachines();}
 
